@@ -1,8 +1,31 @@
+'use client';
+
 import { Code, Cpu, Zap } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useLanguage();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      //const offset = 80; // Offset para não colar no topo
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid">
+      {/* Language Switcher */}
+      <div className="absolute top-8 right-8 z-20">
+        <LanguageSwitcher />
+      </div>
       {/* Matrix Background Effect */}
       <div className="absolute inset-0">
         {[...Array(5)].map((_, i) => (
@@ -32,26 +55,32 @@ const Header = () => {
       <div className="relative z-10 text-center space-y-8 px-4">
         {/* Glitch Title */}
         <h1 className="text-6xl md:text-8xl font-bold bg-gradient-primary bg-clip-text text-transparent glitch-text">
-          NOVA TECH
+          {t('header.title')}
         </h1>
         
         {/* Subtitle with Flash Effect */}
         <div className="space-y-4">
           <p className="text-xl md:text-2xl text-cyber-light flash-animation">
-            DESENVOLVEDOR FULL-STACK
+            {t('header.subtitle')}
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Especialista em tecnologias de ponta, inteligência artificial e desenvolvimento de soluções inovadoras
+            {t('header.description')}
           </p>
         </div>
 
         {/* Cyber Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-          <button className="px-8 py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg neon-border cyber-glow transition-all duration-300 hover:scale-105">
-            Ver Projetos
+          <button 
+            onClick={() => scrollToSection('projects')}
+            className="px-8 py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg neon-border cyber-glow transition-all duration-300 hover:scale-105"
+          >
+            {t('header.buttons.projects')}
           </button>
-          <button className="px-8 py-4 bg-transparent border-2 border-cyber-blue text-cyber-blue hover:bg-cyber-blue hover:text-background rounded-lg transition-all duration-300 hover:scale-105">
-            Contato
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="px-8 py-4 bg-transparent border-2 border-cyber-blue text-cyber-blue hover:bg-cyber-blue hover:text-background rounded-lg transition-all duration-300 hover:scale-105"
+          >
+            {t('header.buttons.contact')}
           </button>
         </div>
 

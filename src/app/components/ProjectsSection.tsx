@@ -1,11 +1,15 @@
+'use client';
+
 import { ExternalLink, Github, Cpu, Database, Smartphone, Globe } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
   const projects = [
     {
       id: 1,
-      title: "AI Neural Network Dashboard",
-      description: "Sistema avançado de monitoramento e controle de redes neurais com interface futurista e análise em tempo real.",
+      titleKey: "projects.ai.title",
+      descriptionKey: "projects.ai.description",
       tech: ["React", "TensorFlow", "WebGL", "Node.js"],
       icon: <Cpu className="w-8 h-8" />,
       color: "cyber-purple",
@@ -14,8 +18,8 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: "Blockchain DeFi Platform",
-      description: "Plataforma descentralizada para finanças digitais com smart contracts e interface Web3 intuitiva.",
+      titleKey: "projects.blockchain.title",
+      descriptionKey: "projects.blockchain.description",
       tech: ["Solidity", "Web3.js", "React", "MetaMask"],
       icon: <Database className="w-8 h-8" />,
       color: "cyber-blue",
@@ -24,8 +28,8 @@ const ProjectsSection = () => {
     },
     {
       id: 3,
-      title: "Quantum Mobile App",
-      description: "Aplicativo móvel com computação quântica simulada e interface holográfica 3D.",
+      titleKey: "projects.quantum.title",
+      descriptionKey: "projects.quantum.description",
       tech: ["React Native", "Three.js", "Quantum.js", "AR"],
       icon: <Smartphone className="w-8 h-8" />,
       color: "cyber-glow",
@@ -34,8 +38,8 @@ const ProjectsSection = () => {
     },
     {
       id: 4,
-      title: "Metaverse Web Portal",
-      description: "Portal web para acesso ao metaverso com realidade virtual e interações 3D imersivas.",
+      titleKey: "projects.metaverse.title",
+      descriptionKey: "projects.metaverse.description",
       tech: ["WebXR", "Three.js", "WebRTC", "Socket.io"],
       icon: <Globe className="w-8 h-8" />,
       color: "accent",
@@ -45,7 +49,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 relative">
+    <section id="projects" className="py-20 px-4 relative">
       {/* Background Grid */}
       <div className="absolute inset-0 cyber-grid opacity-30" />
       
@@ -53,10 +57,10 @@ const ProjectsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent glitch-text">
-            Projetos Inovadores
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Soluções tecnológicas que redefinem o futuro digital
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -79,11 +83,11 @@ const ProjectsSection = () => {
 
                 {/* Project Info */}
                 <h3 className="text-2xl font-bold mb-4 text-cyber-light group-hover:text-primary transition-colors duration-300">
-                  {project.title}
+                  {t(project.titleKey)}
                 </h3>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {project.description}
+                  {t(project.descriptionKey)}
                 </p>
 
                 {/* Tech Stack */}
@@ -105,14 +109,14 @@ const ProjectsSection = () => {
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-secondary text-secondary-foreground rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     <Github className="w-4 h-4" />
-                    <span className="text-sm">Código</span>
+                    <span className="text-sm">{t('projects.code')}</span>
                   </a>
                   <a 
                     href={project.demo}
                     className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary hover:text-primary-foreground text-primary rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">Demo</span>
+                    <span className="text-sm">{t('projects.demo')}</span>
                   </a>
                 </div>
 
@@ -130,7 +134,7 @@ const ProjectsSection = () => {
         {/* View More Button */}
         <div className="text-center mt-16">
           <button className="px-8 py-4 bg-gradient-primary text-background font-semibold rounded-lg hover:scale-105 transition-all duration-300 cyber-glow">
-            Ver Mais Projetos
+            {t('projects.viewMore')}
           </button>
         </div>
       </div>

@@ -1,6 +1,10 @@
+'use client';
+
 import { Heart, Code, Rocket } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-card/50 border-t border-border/50 py-12 px-4 relative overflow-hidden">
       {/* Background Effects */}
@@ -14,7 +18,7 @@ const Footer = () => {
               NOVA TECH
             </h3>
             <p className="text-muted-foreground">
-              Desenvolvendo o futuro com tecnologia de ponta e inovação constante
+              {t('footer.brand.description')}
             </p>
             <div className="flex gap-2">
               <div className="w-3 h-3 bg-cyber-purple rounded-full animate-pulse" />
@@ -27,7 +31,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-cyber-light flex items-center gap-2">
               <Code className="w-5 h-5 text-cyber-purple" />
-              Tecnologias
+              {t('footer.tech.title')}
             </h4>
             <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
               <span>React / Next.js</span>
@@ -43,10 +47,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-cyber-light flex items-center gap-2">
               <Rocket className="w-5 h-5 text-cyber-blue" />
-              Visão
+              {t('footer.vision.title')}
             </h4>
             <p className="text-sm text-muted-foreground">
-              Transformar ideias em realidade digital através de soluções tecnológicas inovadoras que moldam o futuro
+              {t('footer.vision.description')}
             </p>
           </div>
         </div>
@@ -54,15 +58,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>Feito com</span>
+            <span>{t('footer.madeWith')}</span>
             <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            <span>e</span>
+            <span>{t('footer.and')}</span>
             <Code className="w-4 h-4 text-cyber-purple" />
-            <span>por Nova Tech</span>
+            <span>{t('footer.by')}</span>
           </div>
           
           <div className="text-sm text-muted-foreground">
-            © 2024 Nova Tech. Inovação sem limites.
+            {t('footer.copyright')}
           </div>
         </div>
       </div>

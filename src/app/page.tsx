@@ -1,18 +1,17 @@
- import Header from "./components/Header";
+import Header from "./components/Header";
 import ProfileSection from "./components/ProfileSection";
- import ProjectsSection from "./components/ProjectsSection";
- import ContactSection from "./components/ContactSection";
- import Footer from "./components/Footer";
- import './index.css';
+import ProjectsSection from "./components/ProjectsSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background text-foreground">
       <Header />
       <ProfileSection />
       <ProjectsSection />
       <ContactSection />
       <Footer />
-    </div>
+    </main>
   );
-};
+} 

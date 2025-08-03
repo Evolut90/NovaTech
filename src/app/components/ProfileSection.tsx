@@ -1,7 +1,11 @@
+'use client';
+
 import { Brain, Rocket, Shield, Zap } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 //import profileImage from '@/assets/developer-profile.jpg';
 
 const ProfileSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -16,7 +20,7 @@ const ProfileSection = () => {
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyber-purple cyber-glow">
                 <img 
                   src='https://i.imgur.com/1234567890.jpg'
-                  alt="Desenvolvedor Nova Tech"
+                  alt={t('profile.image.alt')}
                   className="w-full h-full object-cover"
                 />
                 
@@ -38,11 +42,10 @@ const ProfileSection = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-                Evolução Tecnológica
+                {t('profile.title')}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Desenvolvedor especializado em tecnologias emergentes, inteligência artificial e arquiteturas cloud-native. 
-                Com mais de 5 anos transformando ideias em soluções digitais revolucionárias.
+                {t('profile.description')}
               </p>
             </div>
 
@@ -50,20 +53,20 @@ const ProfileSection = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-card/50 p-6 rounded-lg neon-border hover:bg-card/70 transition-all duration-300 group">
                 <Shield className="w-8 h-8 text-cyber-purple mb-3 group-hover:animate-pulse" />
-                <h3 className="font-semibold text-cyber-light mb-2">Segurança</h3>
-                <p className="text-sm text-muted-foreground">Implementação de protocolos avançados</p>
+                <h3 className="font-semibold text-cyber-light mb-2">{t('profile.skills.security.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('profile.skills.security.description')}</p>
               </div>
 
               <div className="bg-card/50 p-6 rounded-lg neon-border hover:bg-card/70 transition-all duration-300 group">
                 <Zap className="w-8 h-8 text-cyber-blue mb-3 group-hover:animate-pulse" />
-                <h3 className="font-semibold text-cyber-light mb-2">Performance</h3>
-                <p className="text-sm text-muted-foreground">Otimização de alta performance</p>
+                <h3 className="font-semibold text-cyber-light mb-2">{t('profile.skills.performance.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('profile.skills.performance.description')}</p>
               </div>
             </div>
 
             {/* Tech Stack */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-cyber-light">Stack Tecnológico</h3>
+              <h3 className="text-xl font-semibold text-cyber-light">{t('profile.techStack')}</h3>
               <div className="flex flex-wrap gap-3">
                 {['React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Docker', 'AI/ML', 'Blockchain'].map((tech) => (
                   <span 
@@ -77,9 +80,14 @@ const ProfileSection = () => {
             </div>
 
             {/* Contact Button */}
-            <button className="w-full md:w-auto px-8 py-4 bg-gradient-primary text-background font-semibold rounded-lg hover:scale-105 transition-all duration-300 cyber-glow">
-              Vamos Conversar
-            </button>
+            <a 
+              href={`https://wa.me/5511944459865?text=${encodeURIComponent(t('profile.whatsapp.message'))}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full md:w-auto px-8 py-4 bg-gradient-primary text-background font-semibold rounded-lg hover:scale-105 transition-all duration-300 cyber-glow inline-block text-center"
+            >
+              {t('profile.contactButton')}
+            </a>
           </div>
         </div>
       </div>
