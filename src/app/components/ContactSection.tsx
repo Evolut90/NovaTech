@@ -37,7 +37,7 @@ const ContactSection = () => {
       } else {
         setStatus({ type: 'error', message: data.error || t('contact.form.error') });
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus({ type: 'error', message: t('contact.form.connectionError') });
     } finally {
       setIsLoading(false);
@@ -144,7 +144,7 @@ const ContactSection = () => {
             <div className="bg-gradient-glow p-8 rounded-xl text-center">
               <MessageSquare className="w-12 h-12 text-cyber-purple mx-auto mb-4 animate-float" />
               <blockquote className="text-lg font-medium text-cyber-light mb-2">
-                "{t('contact.quote')}"
+                &ldquo;{t('contact.quote')}&rdquo;
               </blockquote>
               <cite className="text-muted-foreground">- Nova Tech</cite>
             </div>

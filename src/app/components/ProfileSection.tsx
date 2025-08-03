@@ -2,6 +2,7 @@
 
 import { Brain, Rocket, Shield, Zap } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import Image from 'next/image';
 //import profileImage from '@/assets/developer-profile.jpg';
 
 const ProfileSection = () => {
@@ -18,10 +19,11 @@ const ProfileSection = () => {
               
               {/* Main Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyber-purple cyber-glow">
-                <img 
+                <Image 
                   src='https://i.imgur.com/1234567890.jpg'
                   alt={t('profile.image.alt')}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 
                 {/* Overlay Effect */}
