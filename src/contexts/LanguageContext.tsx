@@ -14,7 +14,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations = {
   pt: {
-    'header.title': 'NOVA TECH',
+    'header.title': 'NOVA TECH DELTA',
     'header.subtitle': 'DESENVOLVEDOR FULL-STACK',
     'header.description': 'Especialista em tecnologias de ponta, inteligência artificial e desenvolvimento de soluções inovadoras',
     'header.buttons.projects': 'Ver Projetos',
@@ -72,7 +72,7 @@ const translations = {
     'footer.copyright': '© 2024 Nova Tech. Inovação sem limites.'
   },
   en: {
-    'header.title': 'NOVA TECH',
+    'header.title': 'NOVA TECH DELTA',
     'header.subtitle': 'FULL-STACK DEVELOPER',
     'header.description': 'Expert in cutting-edge technologies, artificial intelligence and innovative solution development',
     'header.buttons.projects': 'View Projects',

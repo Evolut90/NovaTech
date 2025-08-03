@@ -20,7 +20,7 @@ const ProfileSection = () => {
               {/* Main Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyber-purple cyber-glow">
                 <Image 
-                  src='https://i.imgur.com/1234567890.jpg'
+                  src='/sua-foto.jpg'
                   alt={t('profile.image.alt')}
                   fill
                   className="object-cover"
