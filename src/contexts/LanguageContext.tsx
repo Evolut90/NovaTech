@@ -16,9 +16,10 @@ const translations = {
   pt: {
     'header.title': 'NOVA TECH DELTA',
     'header.subtitle': 'DESENVOLVEDOR FULL-STACK',
-    'header.description': 'Especialista em tecnologias de ponta, inteligência artificial e desenvolvimento de soluções inovadoras',
+    'header.description': '🚀 Portfólio full-stack — projetos em web, inteligência artificial e soluções digitais',
     'header.buttons.projects': 'Ver Projetos',
     'header.buttons.contact': 'Contato',
+    'header.intro': 'Bem-vindo ao meu portfólio profissional. Aqui você encontrará os principais projetos que desenvolvi ou estou desenvolvendo atualmente.',
     'profile.title': 'Evolução Tecnológica',
     'profile.description': 'Desenvolvedor especializado em tecnologias emergentes, inteligência artificial e arquiteturas cloud-native. Com mais de 5 anos transformando ideias em soluções digitais revolucionárias.',
     'profile.skills.security.title': 'Segurança',
@@ -74,9 +75,10 @@ const translations = {
   en: {
     'header.title': 'NOVA TECH DELTA',
     'header.subtitle': 'FULL-STACK DEVELOPER',
-    'header.description': 'Expert in cutting-edge technologies, artificial intelligence and innovative solution development',
+    'header.description': '🚀 Full-stack portfolio — showcasing my work in web, AI and software solutions',
     'header.buttons.projects': 'View Projects',
     'header.buttons.contact': 'Contact',
+    'header.intro': "Welcome to my professional portfolio. Here you'll find the main projects I've developed or am currently working on.",
     'profile.title': 'Technological Evolution',
     'profile.description': 'Developer specialized in emerging technologies, artificial intelligence and cloud-native architectures. With over 5 years transforming ideas into revolutionary digital solutions.',
     'profile.skills.security.title': 'Security',

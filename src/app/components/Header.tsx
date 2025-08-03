@@ -84,6 +84,26 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Intro Text */}
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="bg-card/30 backdrop-blur-sm border border-cyber-purple/20 rounded-xl p-6 cyber-glow">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-2 h-2 bg-cyber-purple rounded-full animate-pulse" />
+              <span className="text-cyber-purple text-sm font-mono">SYSTEM_MESSAGE</span>
+            </div>
+            <p className="text-cyber-light leading-relaxed text-center">
+              {t('header.intro')}
+            </p>
+            <div className="flex justify-center mt-4">
+              <div className="flex gap-1">
+                <div className="w-2 h-2 bg-cyber-blue rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+                <div className="w-2 h-2 bg-cyber-purple rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <div className="w-2 h-2 bg-cyber-glow rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Tech Stats */}
         <div className="flex justify-center gap-8 mt-16">
           <div className="text-center">
