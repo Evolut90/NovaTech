@@ -11,7 +11,7 @@ const ProjectsSection = () => {
       id: 1,
       titleKey: "projects.aurum.title",
       descriptionKey: "projects.aurum.description",
-      tech: ["React", "Node.js", "NestJS", "WebSocket", "Docker", "Redis", "Bull", "MongoDb", "Queue Management", "External APis", "High Performance"],
+      tech: ["React", "Node.js", "NestJS", "Tailwind", "WebSocket", "Docker", "Redis", "Bull", "MongoDb", "Queue Management", "External APis", "Cloud", "High Performance"],
       icon: <Receipt className="w-8 h-8" />,
       color: "cyber-purple",
       github: "#",
