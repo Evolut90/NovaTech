@@ -1,13 +1,24 @@
 'use client';
 
-import { ExternalLink, Github, Cpu, Database, Smartphone, Globe } from 'lucide-react';
+import { ExternalLink, Github, Cpu, Database, Smartphone, Globe, Receipt, BookOpenText} from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import Link from 'next/link';
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
   const projects = [
     {
       id: 1,
+      titleKey: "projects.aurum.title",
+      descriptionKey: "projects.aurum.description",
+      tech: ["React", "Node.js", "NestJS", "WebSocket", "Docker", "Redis", "Bull", "MongoDb", "Queue Management", "External APis", "High Performance"],
+      icon: <Receipt className="w-8 h-8" />,
+      color: "cyber-purple",
+      github: "#",
+      demo: "https://aurum-io.vercel.app/login"
+    },
+    {
+      id: 2,
       titleKey: "projects.ai.title",
       descriptionKey: "projects.ai.description",
       tech: ["React", "TensorFlow", "WebGL", "Node.js"],
@@ -17,7 +28,7 @@ const ProjectsSection = () => {
       demo: "#"
     },
     {
-      id: 2,
+      id: 3,
       titleKey: "projects.blockchain.title",
       descriptionKey: "projects.blockchain.description",
       tech: ["Solidity", "Web3.js", "React", "MetaMask"],
@@ -27,7 +38,7 @@ const ProjectsSection = () => {
       demo: "#"
     },
     {
-      id: 3,
+      id: 4,
       titleKey: "projects.quantum.title",
       descriptionKey: "projects.quantum.description",
       tech: ["React Native", "Three.js", "Quantum.js", "AR"],
@@ -37,7 +48,7 @@ const ProjectsSection = () => {
       demo: "#"
     },
     {
-      id: 4,
+      id: 5,
       titleKey: "projects.metaverse.title",
       descriptionKey: "projects.metaverse.description",
       tech: ["WebXR", "Three.js", "WebRTC", "Socket.io"],
@@ -111,8 +122,13 @@ const ProjectsSection = () => {
                     <Github className="w-4 h-4" />
                     <span className="text-sm">{t('projects.code')}</span>
                   </a>
+                  
+                  <Link href="/guide" className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary hover:text-primary-foreground text-primary rounded-lg transition-all duration-300 hover:scale-105">
+                  <BookOpenText className="w-4 h-4" />
+                  <span className="text-sm">Guide</span>  
+                  </Link>
                   <a 
-                    href={project.demo}
+                    href={project.demo} target='blank'
                     className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary hover:text-primary-foreground text-primary rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     <ExternalLink className="w-4 h-4" />

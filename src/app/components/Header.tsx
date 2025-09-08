@@ -3,21 +3,19 @@
 import { Code, Cpu, Zap } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      //const offset = 80; // Offset para não colar no topo
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+    if (isHome) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/#${sectionId}`;
     }
   };
   return (
