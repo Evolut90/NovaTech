@@ -1,11 +1,11 @@
 'use client';
 
-import { ExternalLink, Github, Cpu, Database, Smartphone, Globe, Receipt, BookOpenText} from 'lucide-react';
+import { ExternalLink, Github, Cpu, Database, Smartphone, Globe,Clock, Receipt, BookOpenText, CheckCircle} from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Link from 'next/link';
 
 const ProjectsSection = () => {
-  const { t } = useLanguage();
+  const { t } = useLanguage(); 
   const projects = [
     {
       id: 1,
@@ -15,7 +15,8 @@ const ProjectsSection = () => {
       icon: <Receipt className="w-8 h-8" />,
       color: "cyber-purple",
       github: "#",
-      demo: "https://aurum-io.vercel.app/login"
+      demo: "https://aurum-io.vercel.app/login",
+      status:"completed"
     },
     {
       id: 2,
@@ -25,7 +26,8 @@ const ProjectsSection = () => {
       icon: <Cpu className="w-8 h-8" />,
       color: "cyber-purple",
       github: "#",
-      demo: "#"
+      demo: "#",
+      status:"pendente"
     },
     {
       id: 3,
@@ -35,7 +37,8 @@ const ProjectsSection = () => {
       icon: <Database className="w-8 h-8" />,
       color: "cyber-blue",
       github: "#",
-      demo: "#"
+      demo: "#",
+      status:"pendente"
     },
     {
       id: 4,
@@ -45,7 +48,8 @@ const ProjectsSection = () => {
       icon: <Smartphone className="w-8 h-8" />,
       color: "cyber-glow",
       github: "#",
-      demo: "#"
+      demo: "#",
+      status:"pendente"
     },
     {
       id: 5,
@@ -55,7 +59,8 @@ const ProjectsSection = () => {
       icon: <Globe className="w-8 h-8" />,
       color: "accent",
       github: "#",
-      demo: "#"
+      demo: "#",
+      status:"pendente"
     }
   ];
 
@@ -83,6 +88,31 @@ const ProjectsSection = () => {
               className="group relative"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
+      
+          {/* <div className="absolute top-4 right-4 z-10">
+              <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                ✅ Concluído
+              </span>
+            </div>  */} 
+
+ 
+
+
+<div className="absolute top-4 right-4 z-10">
+  {project.status === 'completed' ? (
+    <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1">
+      <CheckCircle className="w-3 h-3" />
+      Concluído
+    </span>
+  ) : (
+    <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 flex items-center gap-1">
+      <Clock className="w-3 h-3" />
+      Em desenvolvimento
+    </span>
+  )}
+</div>
+
+            
               {/* Project Card */}
               <div className="bg-card/50 backdrop-blur-sm rounded-xl p-8 border border-border/50 hover:border-primary/50 transition-all duration-500 hover:transform hover:scale-105 cyber-glow">
                 {/* Project Icon */}
