@@ -3,6 +3,7 @@
 import { Mail, Github, Linkedin, Send, MessageSquare, Download } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -21,24 +22,35 @@ const ContactSection = () => {
     setStatus({ type: null, message: '' });
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Configuração do EmailJS
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({ type: 'success', message: t('contact.form.success') });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus({ type: 'error', message: data.error || t('contact.form.error') });
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration missing');
       }
-    } catch (_error) {
-      setStatus({ type: 'error', message: t('contact.form.connectionError') });
+
+      // Enviar email usando EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          sent_date: new Date().toLocaleString('pt-BR')
+        },
+        publicKey
+      );
+
+      setStatus({ type: 'success', message: t('contact.form.success') });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      setStatus({ type: 'error', message: t('contact.form.error') });
     } finally {
       setIsLoading(false);
     }

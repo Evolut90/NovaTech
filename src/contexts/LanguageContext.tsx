@@ -170,7 +170,7 @@ const translations = {
     'projects.subtitle': 'Technological solutions that redefine the digital future',
     'projects.viewMore': 'View More Projects',
     'projects.code': 'Code',
-    'projects.demo': 'Demo', 
+    'projects.demo': 'Demo',
     'projects.aurum.title': 'Aurum - Your Investment Management',
     'projects.aurum.description': 'Investment platform with real-time quotes for cryptocurrencies, Brazilian stocks, and international equities. Track gains and losses with interactive charts and detailed performance reports.',
     'projects.status.completed': 'Completed',
