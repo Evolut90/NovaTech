@@ -102,12 +102,12 @@ const ProjectsSection = () => {
   {project.status === 'completed' ? (
     <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1">
       <CheckCircle className="w-3 h-3" />
-      Concluído
+      {t('projects.status.completed')}
     </span>
   ) : (
     <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 flex items-center gap-1">
       <Clock className="w-3 h-3" />
-      Em desenvolvimento
+      {t('projects.status.pending')}
     </span>
   )}
 </div>
