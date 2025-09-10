@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Code, Cpu, Zap } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -9,10 +10,14 @@ const Header = () => {
   const { t } = useLanguage();
   const pathname = usePathname();
   const isHome = pathname === '/';
-  const lastUpdateIso = process.env.NEXT_PUBLIC_LAST_UPDATE;
-  const lastUpdateText = lastUpdateIso
-    ? new Date(lastUpdateIso).toLocaleString()
-    : undefined;
+  const [lastUpdate, setLastUpdate] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/last-update')
+      .then(res => res.json())
+      .then(data => setLastUpdate(data.formatted))
+      .catch(() => setLastUpdate(null));
+  }, []);
 
 
   const scrollToSection = (sectionId: string) => {
@@ -65,9 +70,9 @@ const Header = () => {
           <p className="text-xl md:text-2xl text-cyber-light flash-animation">
             {t('header.subtitle')}
           </p>
-          {lastUpdateText && (
+          {lastUpdate && (
             <p className="text-sm text-muted-foreground">
-              Last update: {lastUpdateText}
+              Last update: {lastUpdate}
             </p>
           )}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
