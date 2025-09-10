@@ -9,6 +9,10 @@ const Header = () => {
   const { t } = useLanguage();
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const lastUpdateIso = process.env.NEXT_PUBLIC_LAST_UPDATE;
+  const lastUpdateText = lastUpdateIso
+    ? new Date(lastUpdateIso).toLocaleString()
+    : undefined;
 
 
   const scrollToSection = (sectionId: string) => {
@@ -61,6 +65,11 @@ const Header = () => {
           <p className="text-xl md:text-2xl text-cyber-light flash-animation">
             {t('header.subtitle')}
           </p>
+          {lastUpdateText && (
+            <p className="text-sm text-muted-foreground">
+              Last update: {lastUpdateText}
+            </p>
+          )}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t('header.description')}
           </p>
