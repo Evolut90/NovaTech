@@ -14,7 +14,7 @@ const ProjectsSection = () => {
       tech: ["React", "Node.js", "NestJS", "Tailwind", "WebSocket", "Docker", "Redis", "Bull", "MongoDb", "Queue Management", "External APis", "Cloud", "High Performance"],
       icon: <Receipt className="w-8 h-8" />,
       color: "cyber-purple",
-      github: "#",
+      github: "https://github.com/Evolut90/aurum",
       demo: "https://aurum-io.vercel.app/login",
       status:"completed"
     },
@@ -98,19 +98,19 @@ const ProjectsSection = () => {
  
 
 
-<div className="absolute top-4 right-4 z-10">
-  {project.status === 'completed' ? (
-    <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1">
-      <CheckCircle className="w-3 h-3" />
-      {t('projects.status.completed')}
-    </span>
-  ) : (
-    <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 flex items-center gap-1">
-      <Clock className="w-3 h-3" />
-      {t('projects.status.pending')}
-    </span>
-  )}
-</div>
+          <div className="absolute top-4 right-4 z-10">
+            {project.status === 'completed' ? (
+              <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1">
+                <CheckCircle className="w-3 h-3" />
+                {t('projects.status.completed')}
+              </span>
+            ) : (
+              <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 flex items-center gap-1">
+                <Clock className="w-3 h-3" />
+                {t('projects.status.pending')}
+              </span>
+            )}
+          </div>
 
             
               {/* Project Card */}
@@ -146,7 +146,7 @@ const ProjectsSection = () => {
                 {/* Project Links */}
                 <div className="flex gap-4">
                   <a 
-                    href={project.github}
+                    href={project.github} target='blank'
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-secondary text-secondary-foreground rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     <Github className="w-4 h-4" />
